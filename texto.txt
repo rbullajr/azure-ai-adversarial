@@ -1,0 +1,89 @@
+1 Platform Security Model Overview
+
+This Platform Security Model (PSM) is one document in a holistic set that includes threat models and security
+analyses, security requirement specifications and application programming interfaces, all architecture-agnostic.
+Together with an open-source reference implementation and test suites, this enables consistent design-in at the
+right level of security.
+This framework builds upon best practice from across the industry and is aimed at different entities throughout
+the supply chain, from chip designers, software vendors and device developers to cloud and network
+infrastructure providers. Though the focus is on compute-centric local network or internet connected devices,
+many aspects are relevant for non-connected devices. No assumptions are made about the solution architecture,
+only that the properties described are met whether using a resource- and performance-constrained
+microcontroller or a resource-rich powerful microprocessor-based platform.
+This security model is the top-level document for the other platform security specifications and defines a
+common language, high-level robustness rules, and models.
+Products may go through a security evaluation, such as PSA Certified, to provide a measure of the robustness of
+the implementation.
+
+1.1 The 10 Security Goals
+
+The set of core security goals given below provide a high-level, abstract, way to think about the essential
+features that are necessary to secure and establish trust. Abstraction allows these goals to be applied as
+required, for example, to an end user connected device, a hardware component, a software component, or a
+service. In describing the goals, the term device is used to represent any entity at any level that must be secure
+and trustworthy.
+
+Goal 1: Devices are uniquely identifiable.
+
+In order to interact with a specific device instance, that instance must be uniquely identifiable. The identity must
+be attestable and that attestation verifiable as a means of proving the device identity, see Goal 3.
+
+Goal 2: Devices support a security lifecycle.
+
+The security state of a device within its security lifecycle depends on software versions, run-time measurements,
+hardware configuration, status of debug ports, and on the product lifecycle phase. Product lifecycle phases
+include, for example, development, deployment, returns, and end-of-life. Each security state defines the security
+properties of the device. The security state must be attestable, see Goal 3, and may impact access to bound
+data, see Goal 9.
+
+Goal 3: Devices are securely attestable.
+
+The trustworthiness of a device must be established. This requires that its identity, see Goal 1, and security state,
+see Goal 2, are proven through attestation. To have validity, device identification and attestation data must be
+part of a device governance regime.
+
+Goal 4: Devices ensure that only authorized software can be executed.
+
+Secure boot and secure loading processes are necessary to ensure that only authorized software can be
+executed on the device. See also Goal 6. Allowing unauthorized software is acceptable only if such software
+cannot compromise the security of the device.
+
+Goal 5: Devices support secure update.
+
+Device software, credentials, programmable hardware configuration, must be updateable to resolve security
+issues or to provide feature updates. Updates must not compromise the device security. Authentication of an
+update is required. However, execution of any updated software must be authorized in accordance with Goal 4.
+
+Goal 6: Devices prevent unauthorized rollback of updates.
+
+Updates are necessary to resolve known security issues, or provide feature updates, see Goal 5. Preventing
+rollback, known as anti-rollback, to a previous version with a known (and subsequently fixed) vulnerability is
+essential. However, authorized rollback for recovery purposes may be allowed.
+
+Goal 7: Devices support isolation.
+
+Isolation of a trustworthy service from less trusted or untrusted services is essential to protect the integrity of
+that service. More generally, isolation boundaries aim to prevent one service from compromising other services,
+for example, between any on-device services and between on-device services and the connected world.
+
+Goal 8: Devices support interaction over isolation boundaries.
+
+Interaction over isolation boundaries, see Goal 7, is essential if isolated services are to serve a purpose. Any such
+interaction must not be able to compromise the interacting services or device. This will require validation of
+exchanged data. It may also be necessary to ensure the confidentiality and integrity of any data exchanged.
+
+Goal 9: Devices support unique binding of sensitive data to a device.
+
+Sensitive data, for example, user or service credentials, or secret keys, must be bound to a device to prevent
+disclosure outside of the device. It may also be required to bind such data to prevent disclosure beyond its
+owner. Inherently secure storage or confidentiality and integrity assured storage may be used. Where binding
+relies on cryptography and keys, see Goal 10, the keys are sensitive data and so must be bound to the device or
+the data owner. It may also be necessary to bind the data to the security state, for example, to deny access
+during debug, see Goal 2.
+
+Goal 10: Devices support a minimal set of trusted services and cryptographic operations that are necessary for the device to support the other goals.
+
+Trusted services may include configuration of the hardware to support security lifecycle (see Goal 2), isolation
+(see Goal 7), and cryptographic services that may use bound secrets (for example, keys) used to support
+attestation (see Goal 3), secure boot and secure loading (see Goal 4), and binding of data (see Goal 9). The
+trusted services must be kept as small as possible to enable analysis and reduce the likelihood flaws.

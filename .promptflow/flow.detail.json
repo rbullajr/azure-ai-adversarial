@@ -1,0 +1,163 @@
+{
+  "flow_runs": [
+    {
+      "run_id": "70d6800b-0f71-48b6-bbc8-586c803b70b9_0",
+      "status": "Failed",
+      "error": {
+        "message": "Execution failure in 'chat': (WrappedOpenAIError) OpenAI API hits NotFoundError: Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors]",
+        "messageFormat": "Execution failure in '{func_name}': {error_type_and_message}",
+        "messageParameters": {
+          "error_type_and_message": "(WrappedOpenAIError) OpenAI API hits NotFoundError: Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors]",
+          "func_name": "chat"
+        },
+        "referenceCode": "Unknown",
+        "code": "UserError",
+        "innerError": {
+          "code": "ScriptExecutionError",
+          "innerError": null
+        },
+        "additionalInfo": [
+          {
+            "type": "FlexFlowExecutionErrorDetails",
+            "info": {
+              "type": "WrappedOpenAIError",
+              "message": "OpenAI API hits NotFoundError: Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors]",
+              "traceback": "Traceback (most recent call last):\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/promptflow/core/_prompty_utils.py\", line 1083, in wrapper\n    return func(*args, **kwargs)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/promptflow/core/_flow.py\", line 462, in __call__\n    response = send_request_to_llm(api_client, self._model.api, params, timeout)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/promptflow/core/_prompty_utils.py\", line 200, in send_request_to_llm\n    result = client.with_options(timeout=timeout).chat.completions.create(**parameters)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/promptflow/tracing/_integrations/_openai_injector.py\", line 95, in wrapper\n    return f(*args, **kwargs)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/promptflow/tracing/_trace.py\", line 556, in wrapped\n    output = func(*args, **kwargs)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/openai/_utils/_utils.py\", line 274, in wrapper\n    return func(*args, **kwargs)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/openai/resources/chat/completions.py\", line 704, in create\n    return self._post(\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/openai/_base_client.py\", line 1270, in post\n    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/openai/_base_client.py\", line 947, in request\n    return self._request(\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/openai/_base_client.py\", line 1051, in _request\n    raise self._make_status_error_from_response(err.response) from None\nopenai.NotFoundError: Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}}\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/promptflow/tracing/_trace.py\", line 556, in wrapped\n    output = func(*args, **kwargs)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/flow.py\", line 20, in chat\n    output = prompty(question=question)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/promptflow/tracing/_trace.py\", line 556, in wrapped\n    output = func(*args, **kwargs)\n  File \"/home/devel/workspace-ia-adversarial/azure-ai-adversarial/venv/lib/python3.10/site-packages/promptflow/core/_prompty_utils.py\", line 1111, in wrapper\n    raise WrappedOpenAIError(e)\npromptflow.core._errors.WrappedOpenAIError: OpenAI API hits NotFoundError: Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors]\n"
+            }
+          }
+        ],
+        "debugInfo": {
+          "type": "ScriptExecutionError",
+          "message": "Execution failure in 'chat': (WrappedOpenAIError) OpenAI API hits NotFoundError: Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors]",
+          "stackTrace": "Traceback (most recent call last):\n",
+          "innerException": null
+        }
+      },
+      "inputs": {
+        "question": "What's the capital of France?"
+      },
+      "output": null,
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "70d6800b-0f71-48b6-bbc8-586c803b70b9",
+      "root_run_id": "70d6800b-0f71-48b6-bbc8-586c803b70b9",
+      "source_run_id": null,
+      "flow_id": "default_flow_id",
+      "start_time": "2024-09-25T23:20:56.244179Z",
+      "end_time": "2024-09-25T23:20:56.954308Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "chat",
+          "type": "Flow",
+          "inputs": {
+            "question": "What's the capital of France?"
+          },
+          "output": null,
+          "start_time": 1727306456.244398,
+          "end_time": 1727306456.953348,
+          "error": {
+            "message": "OpenAI API hits NotFoundError: Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors]",
+            "type": "WrappedOpenAIError"
+          },
+          "children": [
+            {
+              "name": "Prompty",
+              "type": "Function",
+              "inputs": {
+                "question": "What's the capital of France?"
+              },
+              "output": null,
+              "start_time": 1727306456.248849,
+              "end_time": 1727306456.952751,
+              "error": {
+                "message": "OpenAI API hits NotFoundError: Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}} [Error reference: https://platform.openai.com/docs/guides/error-codes/api-errors]",
+                "type": "WrappedOpenAIError"
+              },
+              "children": [
+                {
+                  "name": "convert_prompt_template",
+                  "type": "Function",
+                  "inputs": {
+                    "template": "\nsystem:\nYou are a helpful assistant.\n\nuser:\n{{question}}\n",
+                    "inputs": {
+                      "question": "What's the capital of France?"
+                    }
+                  },
+                  "output": [
+                    {
+                      "role": "system",
+                      "content": "You are a helpful assistant."
+                    },
+                    {
+                      "role": "user",
+                      "content": "What's the capital of France?"
+                    }
+                  ],
+                  "start_time": 1727306456.249442,
+                  "end_time": 1727306456.251682,
+                  "error": null,
+                  "children": [],
+                  "node_name": null,
+                  "parent_id": "bee96f8d-5ddd-4b50-b92e-718f31d6591a",
+                  "id": "a66faa7c-8b76-4f46-a40b-e2ec64837123",
+                  "function": "convert_prompt_template"
+                },
+                {
+                  "name": "openai_chat",
+                  "type": "LLM",
+                  "inputs": {
+                    "temperature": 0.2,
+                    "max_tokens": 1024,
+                    "model": "gpt-35-turbo",
+                    "messages": [
+                      {
+                        "role": "system",
+                        "content": "You are a helpful assistant."
+                      },
+                      {
+                        "role": "user",
+                        "content": "What's the capital of France?"
+                      }
+                    ]
+                  },
+                  "output": null,
+                  "start_time": 1727306456.297906,
+                  "end_time": 1727306456.951745,
+                  "error": {
+                    "message": "Error code: 404 - {'error': {'code': 'DeploymentNotFound', 'message': 'The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again.'}}",
+                    "type": "NotFoundError"
+                  },
+                  "children": [],
+                  "node_name": null,
+                  "parent_id": "bee96f8d-5ddd-4b50-b92e-718f31d6591a",
+                  "id": "63a957ef-d077-4607-bfbf-5d49f6f282d4",
+                  "function": "openai.resources.chat.completions.Completions.create"
+                }
+              ],
+              "node_name": null,
+              "parent_id": "d2bcc5ca-7ecd-4196-aa72-f19fd3c0b95b",
+              "id": "bee96f8d-5ddd-4b50-b92e-718f31d6591a",
+              "function": "Prompty"
+            }
+          ],
+          "node_name": null,
+          "parent_id": "",
+          "id": "d2bcc5ca-7ecd-4196-aa72-f19fd3c0b95b",
+          "function": "chat"
+        }
+      ],
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "duration": 0.710129
+      },
+      "result": null,
+      "upload_metrics": false,
+      "otel_trace_id": "0xe49399a12a558d6a0d7d9a9fb7831064",
+      "message_format": "basic"
+    }
+  ],
+  "node_runs": []
+}

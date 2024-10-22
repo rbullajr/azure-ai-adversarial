@@ -1,13 +1,15 @@
 # Exemplos de Simuladores da Azure AI
 
-Esse repositório contém códigos de exemplo de uso dos simuladores da Azure AI.
+Esse repositório contém códigos de exemplo de uso dos simuladores da Azure AI, tanto para geração de conversas e ataques como para avaliações.
 
-Há uma documentação acerca deles no link [Generate synthetic and simulated data for evaluation](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/develop/simulator-interaction-data).
+## Simulação de conversa, ataque e adversarial
+
+Há uma documentação acerca de simulações de conversa, ataque e adversarial no link [Generate synthetic and simulated data for evaluation](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/develop/simulator-interaction-data).
 Contudo, a documentação é muito focada em um ambiente que já está pronto para desenvolvimento.
 
-Nesse sentido, o respositório corrente apresenta exemplos completos de uso das simulações, bem como uma preparaçao do ambiente.
+Nesse sentido, o respositório corrente apresenta exemplos completos de uso das simulações, bem como uma preparação do ambiente.
 
-## Preparação do ambiente (Azure)
+### Preparação do ambiente (Azure)
 
 Para que a biblioteca consiga se conectar ao ambiente da Azure para a geração das simulações, é necessário instalar um software na máquina que gerencia e aplica as credenciais de usuário da Azure.
 
@@ -32,16 +34,16 @@ Mas se a outra opção for a selecionada, será necessário alterar a classe (ob
 Ou seja, será necessário alterar a credencial de ``AzureCliCredential`` para ``AzureDeveloperCliCredential`` nos códigos.
 
 
-## Preparação
+### Preparação
 
-### Python
+#### Python
 
 O código foi desenvolvido utilizando python versão 3.10.12
 
 Antes de executar, não esquecer de instalar os pacotes indicados em ``requirements.txt``.
 Recomenda-se o uso de [virtual environments](https://docs.python.org/3/library/venv.html) (``venv``).
 
-### Variáveis
+#### Variáveis
 
 É necessário configurar o arquivo ``.env`` com as variáveis de ambiente.
 
@@ -81,14 +83,33 @@ Configurar o alvo a ser experimentado (somente usado na Simualção Simples):
     ```
 
 
-## Códigos de exemplos
+### Códigos de exemplos
 
 Há quatro códigos de exemplos de cada um dos tipos de simulação:
 
-- Simulação simples: código ``simulation.py``
+- Simulação simples: código [``simulation.py``](./simulation.py);
 
-- Simulação Adversarial: código ``adversarial_simulation.py``
+- Simulação Adversarial: código [``adversarial_simulation.py``](./adversarial_simulation.py);
 
-- Simulação de Ataque Direto: código ``direct_attack_simulation.py``
+- Simulação de Ataque Direto: código [``direct_attack_simulation.py``](./direct_attack_simulation.py);
 
-- Simulação de Ataque Indireto: código ``indirect_attack_simulation.py``
+- Simulação de Ataque Indireto: código [``indirect_attack_simulation.py``](./indirect_attack_simulation.py).
+
+
+## Exemplos de Avaliações (Evaluation)
+
+Os exemplos aqui demonstrados são extraídos do documento [Evaluate with the Azure AI Evaluation SDK](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/develop/evaluate-sdk)
+
+### Preparação
+
+Utilizar as mesmas preparações realizadas na secão [Preparação](#preparação).
+
+### Códigos de exemplos
+
+Há três códigos de exemplos:
+
+- Avaliação de de relevância: [``relevance_evaluator.py``](./relevance_evaluator.py);
+
+- Avaliação de violência: [``violence_evaluator.py``](./violence_evaluator.py);
+
+- Avaliação composite de QA: [``composite_qa_evaluator.py``](./composite_qa_evaluator.py).

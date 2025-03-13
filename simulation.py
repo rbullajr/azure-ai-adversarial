@@ -2,7 +2,7 @@ from azure.ai.evaluation.simulator import Simulator
 import asyncio
 from azure.identity import AzureCliCredential
 from typing import List, Dict, Any, Optional
-from promptflow.client import load_flow
+#from promptflow.client import load_flow
 from openai_helper import azure_ai_project,client,TARGET_OPENAI_MODEL
 
 

@@ -2,6 +2,7 @@ import os
 from typing import Dict
 from dotenv import load_dotenv
 from openai import AzureOpenAI,OpenAI
+from azure.ai.evaluation import AzureOpenAIModelConfiguration
 
 
 load_dotenv()
@@ -10,6 +11,14 @@ AZURE_OPENAI_ENDPOINT=os.getenv('AZURE_OPENAI_ENDPOINT')
 AZURE_OPENAI_API_KEY=os.getenv('AZURE_OPENAI_API_KEY')
 AZURE_DEPLOYMENT=os.getenv('AZURE_DEPLOYMENT')
 AZURE_OPEN_API_VERSION=os.getenv('AZURE_OPEN_API_VERSION')
+
+model_config = AzureOpenAIModelConfiguration(
+        type="azure_openai",
+        azure_deployment=AZURE_DEPLOYMENT,
+        azure_endpoint=AZURE_OPENAI_ENDPOINT,
+        api_key=AZURE_OPENAI_API_KEY,
+        api_version=AZURE_OPEN_API_VERSION                
+        )
 
 
 TARGET_TYPE = os.getenv('TARGET_TYPE')
@@ -24,8 +33,10 @@ if TARGET_TYPE == 'azure':
                         api_version=TARGET_OPENAI_API_VERSION,
                         api_key=TARGET_OPENAI_API_KEY,
                 )
+
 elif TARGET_TYPE == 'openai':
         client = OpenAI(base_url=TARGET_OPENAI_ENDPOINT, api_key=TARGET_OPENAI_API_KEY)
+
 
 
 azure_ai_project:Dict = {

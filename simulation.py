@@ -3,7 +3,7 @@ import asyncio
 from azure.identity import AzureCliCredential
 from typing import List, Dict, Any, Optional
 #from promptflow.client import load_flow
-from openai_helper import azure_ai_project,client,TARGET_OPENAI_MODEL
+from openai_helper import model_config,client,TARGET_OPENAI_MODEL
 
 
 task_term = 'Platform Security Model'
@@ -64,7 +64,7 @@ async def executar_simulador():
     with open('texto.txt') as arqTexto:
         text = arqTexto.read()
 
-    simulator = Simulator(azure_ai_project=azure_ai_project, credential=AzureCliCredential())
+    simulator = Simulator(model_config=model_config)
     
     outputs = await simulator(
         target=callback,
@@ -76,7 +76,7 @@ async def executar_simulador():
 
     for output in outputs:
         with open("simulation.jsonl", "a") as f:
-            f.write(output.to_eval_qa_json_lines())
+            f.write(output.to_eval_qr_json_lines())
 
 
 if __name__ == '__main__':

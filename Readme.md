@@ -48,6 +48,7 @@ Recomenda-se o uso de [virtual environments](https://docs.python.org/3/library/v
 #### Variáveis
 
 É necessário configurar o arquivo ``.env`` com as variáveis de ambiente.
+Ele pode ser criado a partir do arquivo [``.env-exemplo``](.env-exemplo) já disponível na raiz desse projeto.
 
 Configurar os dados de projeto de modo a refletir os dados da conta da Azure utilizada:
 ```

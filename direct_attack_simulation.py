@@ -5,6 +5,7 @@ from azure.identity import AzureCliCredential
 from typing import List, Dict, Any, Optional
 from promptflow.client import load_flow
 from openai_helper import azure_ai_project
+from datetime_helper import get_now_string
 
 
 # Specify target callback to simulate against
@@ -51,7 +52,7 @@ async def executar_simulador():
         max_simulation_results=10
     )
 
-    with open("direct_attack_adversarial.jsonl", "a") as f:
+    with open(f"results/direct_attack_adversarial-{get_now_string()}.jsonl", "a") as f:
         f.write(json.dumps(outputs))
 
 

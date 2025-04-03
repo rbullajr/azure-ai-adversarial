@@ -4,6 +4,7 @@ from azure.identity import AzureCliCredential
 from typing import List, Dict, Any, Optional
 #from promptflow.client import load_flow
 from openai_helper import model_config,client,TARGET_OPENAI_MODEL
+from datetime_helper import get_now_string
 
 
 task_term = 'Platform Security Model'
@@ -75,7 +76,7 @@ async def executar_simulador():
     )
 
     for output in outputs:
-        with open("simulation.jsonl", "a") as f:
+        with open(f"results/simulation-{get_now_string()}.jsonl", "a") as f:
             f.write(output.to_eval_qr_json_lines())
 
 

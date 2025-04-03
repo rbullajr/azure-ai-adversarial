@@ -50,7 +50,7 @@ async def executar_simulador():
         max_simulation_results=10
     )
 
-    resultData = outputs.to_eval_qa_json_lines()
+    resultData = outputs.to_eval_qr_json_lines()
     with open("adversarial.jsonl", "a") as f:
         f.write(resultData)
 

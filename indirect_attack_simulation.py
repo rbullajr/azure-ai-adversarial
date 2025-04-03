@@ -40,7 +40,7 @@ async def callback(
 
 
 async def executar_simulador():
-    scenario = AdversarialScenario.ADVERSARIAL_INDIRECT_JAILBREAK
+    scenario = AdversarialScenario.ADVERSARIAL_CONVERSATION
     simulator = IndirectAttackSimulator(azure_ai_project=azure_ai_project, credential=AzureCliCredential())
     
     outputs = await simulator(
@@ -50,7 +50,7 @@ async def executar_simulador():
         max_simulation_results=10
     )
 
-    resultData = outputs.to_eval_qa_json_lines()
+    resultData = outputs.to_eval_qr_json_lines()
     with open("indirect_attack_adversarial.jsonl", "a") as f:
         f.write(resultData)
 

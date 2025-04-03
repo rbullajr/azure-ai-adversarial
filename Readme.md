@@ -15,11 +15,13 @@ Para que a biblioteca consiga se conectar ao ambiente da Azure para a geração 
 
 Há duas opções de CLI:
 
-1. **Azure CLI**
+1. **Azure CLI** (recomendado)
     
     Instalável a partir do link: [How to install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
   
     Após, realizar login por meio das instruções [Authenticate to Azure using Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli)
+
+    Há ainda nesse projeto um arquivo com exemplos de alguns comandos: [``comandos-azure-cli.md``](comandos-azure-cli.md)
 
 2. **Azure Developer CLI**
 

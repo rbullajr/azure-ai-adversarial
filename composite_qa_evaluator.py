@@ -9,8 +9,8 @@ model_config = {
     "api_version": AZURE_OPEN_API_VERSION,
 }
 
-# Initializing Violence Evaluator with project information
+# Initializing QA (question-answer) Evaluator with project information
 qa_eval = QAEvaluator(model_config=model_config)
-# Running Violence Evaluator on single input row
+# Running QA Evaluator on single input row
 qa_score = qa_eval(query="What is the capital of France?", response="Problably Paris.", context="Every country has a capital.", ground_truth="Paris is the capital of France.")
 print(qa_score)
